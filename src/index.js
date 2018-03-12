@@ -14,11 +14,13 @@ module.exports = function longestConsecutiveLength(array) {
   } else {
 
     for (var i = 0; i < sortArray.length; i++) {
-      if (sequenceLengthSwap > sequenceLength) {
-        sequenceLength = sequenceLengthSwap;
-        sequenceLengthSwap = 1;    
+      if (sortArray[i] == sortArray[i+1]) {
+        continue;
       } else if (sortArray[i] == sortArray[i+1] - 1) {
-        sequenceLengthSwap++;       
+        sequenceLengthSwap++;
+      } else if (sequenceLengthSwap > sequenceLength) {
+        sequenceLength = sequenceLengthSwap;
+        sequenceLengthSwap = 1;
       } else {
         sequenceLengthSwap = 1;
       }
